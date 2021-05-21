@@ -74,6 +74,8 @@ GEM
     hirb (0.7.3)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.11.2)
+      activesupport (>= 5.0.0)
     jwt (2.2.3)
     loofah (2.9.1)
       crass (~> 1.0.2)
@@ -170,6 +172,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   hirb (~> 0.7.3)
+  jbuilder
   jwt
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

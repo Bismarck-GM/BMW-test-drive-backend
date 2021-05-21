@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'login', to: 'authentication#create'
       post 'register', to: 'users#create'
+      post 'dealerships', to: 'dealerships#create'
+      post 'appointments', to: 'appointments#create'
       get 'users', to: 'users#index'
+      get 'dealerships', to: 'dealerships#index'
+      get 'appointments', to: 'appointments#show'
+      get 'admin/appointments', to: 'appointments#index'
     end
   end
 end

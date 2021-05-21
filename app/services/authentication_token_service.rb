@@ -24,6 +24,6 @@ class AuthenticationTokenService
   end
 
   def self.expired_token
-    message = { error: "Expired Token or Decoding Error. Please log-in again." }
+    message = { error: "Expired Session or Decoding Error. Please log-in again." }
   end
 end

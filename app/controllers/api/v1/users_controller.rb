@@ -8,7 +8,13 @@ module Api
       def create
         user = User.create(user_params)
         if user.save
-          render json: user, status: :created
+          token = AuthenticationTokenService.encode(user)
+          render json: {
+            logged_in: true,
+            username: user.username,
+            email: user.email,
+            token: token,
+          }, status: :created
         else
           render json: { error: user.errors.full_messages.first }, status: :unprocessable_entity
         end

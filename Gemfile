@@ -14,10 +14,13 @@ gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
+gem 'database_cleaner'
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'rainbow'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

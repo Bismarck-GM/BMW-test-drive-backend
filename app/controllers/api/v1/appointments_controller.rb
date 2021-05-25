@@ -6,23 +6,25 @@ module Api
       before_action :authenticate_user, only: [:create, :show]
 
       def create
-        params = digest_params(appointment_params, @current_user.id)
-        appointment = Appointment.create(params)
+        appointment = Appointment.create(**appointment_params, user_id: @current_user.id)
         if appointment.save
-          render json: appointment, status: :created
+          render json: { success: 'Apointment created succesfully!'}, status: :created
         else
-          render json: { error: appointment.errors[:start_time].first }, status: :unprocessable_entity
+          render json: { error: appointment.errors[:error].first }, status: :unprocessable_entity
         end
       end
 
       def show
-        appointments = Appointment.where(user_id: @current_user.id).includes(:dealership)
+        appointments = Appointment.where(user_id: @current_user.id).includes(:dealership, :car)
         render json: appointments.to_json({
           except: [:created_at, :updated_at, :user_id, :dealership_id],
           include: { 
             dealership: {
-              except: [:id, :created_at, :updated_at]
-            }
+              except: [:created_at, :updated_at]
+            },
+            car: {
+              except: [:created_at, :updated_at]
+            },
           }
         })
       end
@@ -34,17 +36,9 @@ module Api
 
       private
 # using new Date().toISOString()
-      def digest_params(ap_params, user_id)
-        params = {
-          start_time: ap_params[:start_time].to_datetime,
-          end_time: ap_params[:start_time].to_datetime + 30.minutes,
-          user_id: user_id,
-          dealership_id: ap_params[:dealership]
-        }
-      end
 
       def appointment_params
-        params.permit(:start_time, :dealership)
+        params.require(:appointment).permit(:start_time, :dealership_id, :car_id)
       end
 
       def authenticate_user

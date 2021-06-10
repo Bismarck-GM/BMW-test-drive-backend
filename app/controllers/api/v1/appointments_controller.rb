@@ -3,7 +3,7 @@ module Api
     class AppointmentsController < ApplicationController
       include ActionController::HttpAuthentication::Token
       before_action :authenticate_admin, only: [:index]
-      before_action :authenticate_user, only: [:create, :show]
+      before_action :authenticate_user, only: [:create, :show, :destroy]
 
       def create
         appointment = Appointment.create(**appointment_params, user_id: @current_user.id)
@@ -29,13 +29,19 @@ module Api
         })
       end
 
+      def destroy
+        # byebug
+        appointment = @current_user.appointments.find(params[:id])
+        appointment.destroy
+        render json: { info: 'Appointment deleted succesfully'}
+      end
+
       def index
         appointments = Appointment.all
         render json: appointments
       end
 
       private
-# using new Date().toISOString()
 
       def appointment_params
         params.require(:appointment).permit(:start_time, :dealership_id, :car_id)

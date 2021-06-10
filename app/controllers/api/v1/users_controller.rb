@@ -10,9 +10,10 @@ module Api
         if user.save
           token = AuthenticationTokenService.encode(user)
           render json: {
-            logged_in: true,
+            loggedIn: true,
             username: user.username,
             email: user.email,
+            admin: user.admin,
             token: token,
           }, status: :created
         else

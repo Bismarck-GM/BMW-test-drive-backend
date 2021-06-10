@@ -23,7 +23,6 @@ module Api
               email: user.email,
               admin: user.admin,
               token: token,
-              appointments: user.appointments
             }
           else
             handle_unauthenticated

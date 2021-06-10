@@ -4,52 +4,62 @@ require 'faker'
 
 using Rainbow
 
-puts "Erasing DB".red
+Gem.win_platform? ? (system "cls") : (system "clear")
+
+puts "-- Erasing DB --".red
 
 DatabaseCleaner.clean_with(:truncation)
 
-puts "DB Cleaned".green
+puts "--    Done    --".green
 
-puts "Seeding...".yellow
+puts "\nSeeding...".yellow
 
 # FAMILIES
 
 x1Family = CarFamily.create(
+  shortname: 'X1',
   name: 'X1 Sports Activity Vehicle',
   description: 'The compact, yet intrepid, four-door SAV.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XA&client=byo&paint=P0C1M&fabric=FKCSW&sa=S01X1,S0205,S0249,S0255,S0302,S0316,S03AG,S03AT,S03L8,S0420,S0423,S0473,S0493,S04LU,S0508,S0534,S0544,S05AS,S0676,S06AC,S06AK,S06UN,S0775,S07HW&date=20200702&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x2Family = CarFamily.create(
+  shortname: 'X2',
   name: 'X2 Sports Activity Coupe',
   description: 'The sporty rebel made for the spirited thrill seeker.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=22XX&client=byo&paint=P0C1M&fabric=FKCSW&sa=S01XU,S0205,S0249,S0255,S0302,S0316,S03AG,S03MB,S0420,S0423,S0473,S0481,S04LU,S0508,S0534,S0544,S05A4,S05AS,S0676,S06AC,S06AK,S06NW,S06UN,S0775&date=20210302&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x3Family = CarFamily.create(
+  shortname: 'X3',
   name: 'X3 Sports Activity Vehicle',
   description: 'The versatile four-door SAV perfect for active lifestyles.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byo&paint=P0300&fabric=FK8SW&sa=S0255,S026W,S02TB,S0302,S0319,S03AG,S03AT,S03DZ,S03MB,S0420,S0423,S0430,S0431,S0459,S0481,S0493,S04K1,S04U0,S0508,S0534,S05A1,S05A4,S05AS,S0676,S06AC,S06AK,S06C2,S06U2,S06WD,S0775,S07HW&date=20200804&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x4Family = CarFamily.create(
+  shortname: 'X4',
   name: 'X4 Sports Activity Coupe',
   description: 'The coupe-inspired adventurer of the X family.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XR&client=byo&paint=P0C06&fabric=FK8SW&sa=S01X8,S02TB,S0302,S0319,S03DZ,S0402,S0420,S0423,S0430,S0431,S0459,S0481,S0493,S04K1,S04U0,S0534,S05A1,S05AS,S0676,S06AC,S06AK,S06C4,S06NS,S06U3,S0704,S0775,S07HW&date=20200804&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x5Family = CarFamily.create(
+  shortname: 'X5',
   name: 'X5 Sports Activity Vehicle',
   description: 'The original that inspired every X to follow.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XO&client=byo&paint=P0C27&fabric=FK8SW&sa=S01CE,S01SB,S0255,S02TB,S0302,S0319,S03AT,S03MB,S0402,S0420,S0423,S0459,S0481,S0494,S04AW,S04KR,S04T8,S04UR,S0552,S05A1,S05AC,S05AS,S0676,S06AC,S06AK,S06C4,S06U3,S0775,S07HW&date=20200804&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x6Family = CarFamily.create(
+  shortname: 'X6',
   name: 'X6 Sports Activity Coupe',
   description: 'The refined, reimagined coupe offering of a classic.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XU&client=byo&paint=P0C3D&fabric=FMCSW&sa=S01CE,S01SF,S0255,S0302,S0319,S0322,S03MB,S0402,S0420,S0423,S0459,S0481,S0494,S04KR,S04T8,S04UR,S05A1,S05AC,S05AS,S05AV,S0676,S06AC,S06AK,S06C4,S06U3,S0775,S07HW&date=20200804&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 x7Family = CarFamily.create(
+  shortname: 'X7',
   name: 'X7 Sports Activity Vehicle',
   description: 'The largest and most luxurious Sports Activity Vehicle ever built.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SA&client=byo&paint=P0A90&fabric=FK8SW&sa=S01CE,S01XK,S0255,S02TB,S0302,S0319,S0322,S03AT,S03MB,S0418,S0420,S0423,S0481,S04HB,S04KR,S04UR,S05A1,S05AC,S05AS,S0676,S06AC,S06AK,S06C4,S06U3,S07LY&date=20200804&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
 )
 alpinax7Family = CarFamily.create(
+  shortname: 'XB7',
   name: 'ALPINA XB7',
   description: 'The luxury Sports Activity Vehicle with extraordinary performance and expressive style from ALPINA.',
   img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SQ&client=byo&paint=P0C3Z&fabric=FVASW&sa=S02TB,S02VS,S0302,S0319,S0322,S03AT,S03DZ,S03MB,S0417,S0418,S0420,S0423,S044A,S0453,S0456,S04HA,S04HB,S04M5,S04T7,S04UR,S05A1,S05AC,S05AR,S05AU,S05AZ,S05DN,S0610,S0688,S06AC,S06AK,S06C4,S06DR,S06NW,S06U3,S0776,S0X2A,S0XEY&date=20200802&angle=40&quality=65&sharp=100&resp=png&BKGND=TRANSPARENT&width=2000'
@@ -249,7 +259,7 @@ Car.create(
   mpg: 33,
   accel: 6.6,
   msrp: 35_400,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XA&client=byoc&paint=P0300&fabric=FKCSW&sa=S01X1%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03AT%2CS03L8%2CS0420%2CS0423%2CS0473%2CS0493%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06UN%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XA&client=byoc&paint=P0300&fabric=FKCSW&sa=S01X1%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03AT%2CS03L8%2CS0420%2CS0423%2CS0473%2CS0493%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06UN%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,CSM,GSM,MinWM,MinGM,MisBM,PhyBM,SBM],
   drive: fwd,
   propulsor: fourCyl,
@@ -263,7 +273,7 @@ Car.create(
   mpg: 31,
   accel: 6.3,
   msrp: 37_400,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XB&client=byoc&paint=P0300&fabric=FKCSW&sa=S01X1%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03AT%2CS03L8%2CS0420%2CS0423%2CS0473%2CS0493%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06UN%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XB&client=byoc&paint=P0300&fabric=FKCSW&sa=S01X1%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03AT%2CS03L8%2CS0420%2CS0423%2CS0473%2CS0493%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06UN%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,CSM,GSM,MinWM,MinGM,MisBM,PhyBM,SBM],
   drive: xDrive,
   propulsor: fourCyl,
@@ -280,7 +290,7 @@ Car.create(
   mpg: 32,
   accel: 6.6,
   msrp: 36_600,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=22XX&client=byoc&paint=P0300&fabric=FKCSW&sa=S01XU%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03MB%2CS0420%2CS0423%2CS0473%2CS0481%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06NW%2CS06UN%2CS0775&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=22XX&client=byoc&paint=P0300&fabric=FKCSW&sa=S01XU%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03MB%2CS0420%2CS0423%2CS0473%2CS0481%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06NW%2CS06UN%2CS0775&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,MinGM,MisBM,PhyBM,GGoldM,SBM,SOM],
   drive: fwd,
   propulsor: fourCyl,
@@ -294,7 +304,7 @@ Car.create(
   mpg: 32,
   accel: 6.6,
   msrp: 36_600,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=22XX&client=byoc&paint=P0300&fabric=FKCSW&sa=S01XU%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03MB%2CS0420%2CS0423%2CS0473%2CS0481%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06NW%2CS06UN%2CS0775&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=22XX&client=byoc&paint=P0300&fabric=FKCSW&sa=S01XU%2CS0205%2CS0249%2CS0255%2CS0302%2CS0316%2CS03AG%2CS03MB%2CS0420%2CS0423%2CS0473%2CS0481%2CS04LU%2CS0508%2CS0534%2CS0544%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06NW%2CS06UN%2CS0775&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,MinGM,MisBM,PhyBM,GGoldM,SBM,SOM],
   drive: xDrive,
   propulsor: fourCyl,
@@ -311,7 +321,7 @@ Car.create(
   mpg: 29,
   accel: 6,
   msrp: 43_000,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,PhyBM,CBM,DGM],
   drive: rwd,
   propulsor: fourCyl,
@@ -325,7 +335,7 @@ Car.create(
   mpg: 29,
   accel: 6,
   msrp: 45_000,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,PhyBM,CBM,DGM],
   drive: xDrive,
   propulsor: fourCyl,
@@ -339,7 +349,7 @@ Car.create(
   mpg: 60,
   accel: 5.9,
   msrp: 49_600,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XQ&client=byoc&paint=P0300&fabric=FK8SW&sa=S0255%2CS026W%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03AT%2CS03DZ%2CS03MB%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0508%2CS0534%2CS05A1%2CS05A4%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C2%2CS06U2%2CS06WD%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,PhyBM,CBM,DGM],
   drive: xDrive,
   propulsor: hybridFourCyl,
@@ -356,7 +366,7 @@ Car.create(
   mpg: 29,
   accel: 6,
   msrp: 51_600,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XR&client=byoc&paint=P0300&fabric=FK8SW&sa=S01X8%2CS02TB%2CS0302%2CS0319%2CS03DZ%2CS0402%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0534%2CS05A1%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06NS%2CS06U3%2CS0704%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XR&client=byoc&paint=P0300&fabric=FK8SW&sa=S01X8%2CS02TB%2CS0302%2CS0319%2CS03DZ%2CS0402%2CS0420%2CS0423%2CS0430%2CS0431%2CS0459%2CS0481%2CS0493%2CS04K1%2CS04U0%2CS0534%2CS05A1%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06NS%2CS06U3%2CS0704%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,BSM,GSM,MinWM,PhyBM,CBM,DGM,FRM],
   drive: xDrive,
   propulsor: fourCyl,
@@ -373,7 +383,7 @@ Car.create(
   mpg: 26,
   accel: 5.3,
   msrp: 59_400,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,PhyBM,AGreyM,MGreenM],
   drive: rwd,
   propulsor: sixCyl,
@@ -387,7 +397,7 @@ Car.create(
   mpg: 25,
   accel: 5.3,
   msrp: 61_700,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,PhyBM,AGreyM,MGreenM],
   drive: xDrive,
   propulsor: sixCyl,
@@ -401,7 +411,7 @@ Car.create(
   mpg: 50,
   accel: 5.3,
   msrp: 65_400,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XT&client=byoc&paint=P0300&fabric=FK8SW&sa=S01SB%2CS0255%2CS02TB%2CS02VR%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23F6F6F6&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XT&client=byoc&paint=P0300&fabric=FK8SW&sa=S01SB%2CS0255%2CS02TB%2CS02VR%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=%23F6F6F6&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,PhyBM,AGreyM,MGreenM],
   drive: xDrive,
   propulsor: hybridSixCyl,
@@ -418,7 +428,7 @@ Car.create(
   mpg: 26,
   accel: 5.3,
   msrp: 65_050,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XU&client=byoc&paint=P0300&fabric=FMCSW&sa=S01CE%2CS01SF%2CS0255%2CS0302%2CS0319%2CS0322%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04KR%2CS04T8%2CS04UR%2CS05A1%2CS05AC%2CS05AS%2CS05AV%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XU&client=byoc&paint=P0300&fabric=FMCSW&sa=S01CE%2CS01SF%2CS0255%2CS0302%2CS0319%2CS0322%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04KR%2CS04T8%2CS04UR%2CS05A1%2CS05AC%2CS05AS%2CS05AV%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,FRM,PhyBM,AGreyM,MGreenM],
   drive: rwd,
   propulsor: sixCyl,
@@ -432,7 +442,7 @@ Car.create(
   mpg: 25,
   accel: 5.3,
   msrp: 67_350,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XG&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01SB%2CS0255%2CS02TB%2CS0302%2CS0319%2CS03AT%2CS03MB%2CS0402%2CS0420%2CS0423%2CS0459%2CS0481%2CS0494%2CS04AW%2CS04KR%2CS04T8%2CS04UR%2CS0552%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS0775%2CS07HW&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,FRM,PhyBM,AGreyM,MGreenM],
   drive: xDrive,
   propulsor: sixCyl,
@@ -449,7 +459,7 @@ Car.create(
   mpg: 24,
   accel: 5.8,
   msrp: 74_900,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SA&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01XK%2CS0255%2CS02TB%2CS0302%2CS0319%2CS0322%2CS03AT%2CS03MB%2CS0418%2CS0420%2CS0423%2CS0481%2CS04HB%2CS04KR%2CS04UR%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS07LY&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SA&client=byoc&paint=P0300&fabric=FK8SW&sa=S01CE%2CS01XK%2CS0255%2CS02TB%2CS0302%2CS0319%2CS0322%2CS03AT%2CS03MB%2CS0418%2CS0420%2CS0423%2CS0481%2CS04HB%2CS04KR%2CS04UR%2CS05A1%2CS05AC%2CS05AS%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06U3%2CS07LY&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,JB,CBM,BSM,DGM,MinWM,SBrownM,PhyBM,AGreyM,MGreenM,DravitGreyM,TanzaniteBlueM,AmetrinM],
   drive: xDrive,
   propulsor: sixCyl,
@@ -466,7 +476,7 @@ Car.create(
   mpg: 21,
   accel: 4,
   msrp: 141_300,
-  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SQ&client=byoc&paint=P0300&fabric=FVASW&sa=S02TB%2CS02VS%2CS0302%2CS0319%2CS0322%2CS03AT%2CS03DZ%2CS03MB%2CS0417%2CS0418%2CS0420%2CS0423%2CS044A%2CS0453%2CS0456%2CS04HA%2CS04HB%2CS04M5%2CS04T7%2CS04UR%2CS05A1%2CS05AC%2CS05AR%2CS05AU%2CS05AZ%2CS05DN%2CS0610%2CS0688%2CS06AC%2CS06AK%2CS06C4%2CS06DR%2CS06NW%2CS06U3%2CS0776%2CS0XEY%2CS0Z0C&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700',
+  img_thumb: 'https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21SQ&client=byoc&paint=P0300&fabric=FVASW&sa=S02TB%2CS02VS%2CS0302%2CS0319%2CS0322%2CS03AT%2CS03DZ%2CS03MB%2CS0417%2CS0418%2CS0420%2CS0423%2CS044A%2CS0453%2CS0456%2CS04HA%2CS04HB%2CS04M5%2CS04T7%2CS04UR%2CS05A1%2CS05AC%2CS05AR%2CS05AU%2CS05AZ%2CS05DN%2CS0610%2CS0688%2CS06AC%2CS06AK%2CS06C4%2CS06DR%2CS06NW%2CS06U3%2CS0776%2CS0XEY%2CS0Z0C&angle=270&quality=90&sharp=99&resp=png&cut=3&bkgnd=TRANSPARENT&width=700',
   paints: [AW,BSM,MinWM,PhyBM,AGreyM,AlpinaBlueM,DravitGreyM,TanzaniteBlueM,AmetrinM],
   drive: alpinaxDrive,
   propulsor: alpinaV8,
@@ -496,9 +506,13 @@ User.create(
   password_confirmation: '12345678',
 )
 
-puts """Seeded: \n" + 
-  "#{Paint.count} ".yellow + "Paints,\n".green +
-  "#{Car.count} ".yellow + "Cars,\n".green +
-  "#{CarFamily.count} ".yellow + "CarFamilies,\n".green +
+puts """\nSeeded:\n" + 
   "#{Dealership.count} ".yellow + "Dealerships,\n".green +
-  "#{User.count} ".yellow + "Users.""".green
+  "#{CarFamily.count} ".yellow + " CarFamilies,\n".green +
+  "#{Car.count} ".yellow + "Cars,\n".green +
+  "#{Paint.count} ".yellow + "Paints,\n".green +
+  "#{Drive.count} ".yellow + " Drives,\n".green +
+  "#{Propulsor.count} ".yellow + " Propulsors.\n\n".green +
+  "Demo Users".yellow + " - "+ "Created\n""".green
+
+puts "Happy Coding :)".green

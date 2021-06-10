@@ -6,22 +6,24 @@ module Api
         if !user
           handle_unauthenticated
         else
-          if user.authenticate(auth_params[:password]) && user.admin?
+          if @user.authenticate(auth_params[:password]) && @user.admin?
             token = AuthenticationTokenService.encode(user)
             render json: {
-              logged_in: true,
+              loggedIn: true,
               username: user.username,
               email: user.email,
               admin: user.admin,
               token: token,
             }
-          elsif user.authenticate(auth_params[:password])
+          elsif @user.authenticate(auth_params[:password])
             token = AuthenticationTokenService.encode(user)
             render json: {
-              logged_in: true,
+              loggedIn: true,
               username: user.username,
               email: user.email,
+              admin: user.admin,
               token: token,
+              appointments: user.appointments
             }
           else
             handle_unauthenticated

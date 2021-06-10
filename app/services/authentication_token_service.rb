@@ -3,7 +3,7 @@ class AuthenticationTokenService
   ALGORITHM_TYPE = 'HS256'.freeze
 
   def self.encode(user)
-    exp = 24.hours.from_now.to_i
+    exp = 72.hours.from_now.to_i
     payload = { username: user.username, user_id: user.id, exp: exp }
     JWT.encode payload, HMAC_SECRET, ALGORITHM_TYPE
   end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get 'dealerships', to: 'dealerships#index'
       get 'appointments', to: 'appointments#show'
       get 'admin/appointments', to: 'appointments#index'
+      get 'models', to: 'car_families#index'
+      get 'cars', to: 'cars#index'
     end
   end
 end

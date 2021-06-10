@@ -15,15 +15,15 @@ module Api
       end
 
       def show
-        appointments = Appointment.where(user_id: @current_user.id).includes(:dealership, :car)
+        appointments = Appointment.where(user_id: @current_user.id).where("start_time > ?", DateTime.now).includes(:car, :dealership)
         render json: appointments.to_json({
-          except: [:created_at, :updated_at, :user_id, :dealership_id],
-          include: { 
-            dealership: {
-              except: [:created_at, :updated_at]
-            },
+          only: [:id, :start_time],
+          include: {
             car: {
-              except: [:created_at, :updated_at]
+              only: [:name]
+            },
+            dealership: {
+              only: [:name, :address]
             },
           }
         })

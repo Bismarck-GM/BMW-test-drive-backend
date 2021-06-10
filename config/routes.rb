@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'users', to: 'users#index'
       get 'dealerships', to: 'dealerships#index'
       get 'appointments', to: 'appointments#show'
+      delete 'appointments', to: 'appointments#destroy'
       get 'admin/appointments', to: 'appointments#index'
       get 'models', to: 'car_families#index'
       get 'cars', to: 'cars#index'

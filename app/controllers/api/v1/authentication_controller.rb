@@ -1,32 +1,29 @@
 module Api
   module V1
     class AuthenticationController < ApplicationController
-
       def create
         if !user
           handle_unauthenticated
+        elsif @user.authenticate(auth_params[:password]) && @user.admin?
+          token = AuthenticationTokenService.encode(user)
+          render json: {
+            loggedIn: true,
+            username: user.username,
+            email: user.email,
+            admin: user.admin,
+            token: token
+          }
+        elsif @user.authenticate(auth_params[:password])
+          token = AuthenticationTokenService.encode(user)
+          render json: {
+            loggedIn: true,
+            username: user.username,
+            email: user.email,
+            admin: user.admin,
+            token: token
+          }
         else
-          if @user.authenticate(auth_params[:password]) && @user.admin?
-            token = AuthenticationTokenService.encode(user)
-            render json: {
-              loggedIn: true,
-              username: user.username,
-              email: user.email,
-              admin: user.admin,
-              token: token,
-            }
-          elsif @user.authenticate(auth_params[:password])
-            token = AuthenticationTokenService.encode(user)
-            render json: {
-              loggedIn: true,
-              username: user.username,
-              email: user.email,
-              admin: user.admin,
-              token: token,
-            }
-          else
-            handle_unauthenticated
-          end
+          handle_unauthenticated
         end
       end
 
@@ -43,7 +40,6 @@ module Api
       def auth_params
         params.require(:authentication).permit(:username, :password, :email, :admin)
       end
-
     end
   end
 end

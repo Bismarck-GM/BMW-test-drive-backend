@@ -6,7 +6,7 @@ module Api
 
       def index
         dealerships = Dealership.all
-        render json: dealerships
+        render json: dealerships.to_json({ except: %i[created_at updated_at] })
       end
 
       def create
@@ -22,16 +22,17 @@ module Api
 
       def authenticate_admin
         token, _options = token_and_options(request)
-        return render json: { error: "No Authorization headers."}, status: :unauthorized if token.nil?
+        return render json: { error: 'No Authorization headers.' }, status: :unauthorized if token.nil?
+
         message = AuthenticationTokenService.decode(token)
         return render json: message, status: :unauthorized if message[:error]
+
         user_id = message[:user_id]
         @current_user = User.find(user_id)
-        render json: { error: "No admin role." }, status: :unauthorized unless @current_user.admin?
+        render json: { error: 'No admin role.' }, status: :unauthorized unless @current_user.admin?
       rescue ActiveRecord::RecordNotFound
-        render json: { error: "No user found."}, status: :unauthorized
+        render json: { error: 'No user found.' }, status: :unauthorized
       end
-
     end
   end
 end

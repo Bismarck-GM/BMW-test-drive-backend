@@ -4,22 +4,22 @@ module Api
       def index
         cars = Car.all.includes(:family, :paints)
         render json: cars.to_json({
-          except: [:created_at, :updated_at],
-          include: {
-            family: {
-              only: [:id],
-            },
-            paints: {
-              except: [:created_at, :updated_at],
-            },
-            propulsor: {
-              except: [:created_at, :updated_at],
-            },
-            drive: {
-              except: [:created_at, :updated_at],
-            },
-          },
-        })
+                                    except: %i[created_at updated_at],
+                                    include: {
+                                      family: {
+                                        only: [:id]
+                                      },
+                                      paints: {
+                                        except: %i[created_at updated_at]
+                                      },
+                                      propulsor: {
+                                        except: %i[created_at updated_at]
+                                      },
+                                      drive: {
+                                        except: %i[created_at updated_at]
+                                      }
+                                    }
+                                  })
       end
     end
   end

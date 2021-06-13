@@ -10,9 +10,9 @@ class AuthenticationTokenService
 
   def self.decode(token)
     decoded_token = JWT.decode token, HMAC_SECRET, true, { algorithm: ALGORITHM_TYPE }
-    message = { user_id: decoded_token[0]["user_id"] }
-    rescue JWT::ExpiredSignature, JWT::DecodeError
-      expired_token
+    { user_id: decoded_token[0]['user_id'] }
+  rescue JWT::ExpiredSignature, JWT::DecodeError
+    expired_token
   end
 
   def self.valid_payload(payload)
@@ -24,6 +24,6 @@ class AuthenticationTokenService
   end
 
   def self.expired_token
-    message = { error: "Expired Session or Decoding Error. Please log-in again." }
+    { error: 'Expired Session or Decoding Error. Please log-in again.' }
   end
 end

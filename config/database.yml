@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: drive_test
+  database: drive_test_tests
   username: drive_test
   password: gerogero17
 

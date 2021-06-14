@@ -2,7 +2,7 @@ module Api
   module V1
     class AuthenticationController < ApplicationController
       def create
-        if @user
+        if user
           token = AuthenticationTokenService.encode(user)
           render json: {
             loggedIn: true,

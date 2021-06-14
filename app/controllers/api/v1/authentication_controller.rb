@@ -22,6 +22,7 @@ module Api
             admin: user.admin,
             token: token
           }
+        end
       end
 
       private

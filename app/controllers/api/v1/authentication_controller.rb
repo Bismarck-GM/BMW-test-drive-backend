@@ -4,16 +4,7 @@ module Api
       def create
         if !user
           handle_unauthenticated
-        elsif @user.authenticate(auth_params[:password]) && @user.admin?
-          token = AuthenticationTokenService.encode(user)
-          render json: {
-            loggedIn: true,
-            username: user.username,
-            email: user.email,
-            admin: user.admin,
-            token: token
-          }
-        elsif @user.authenticate(auth_params[:password])
+        else
           token = AuthenticationTokenService.encode(user)
           render json: {
             loggedIn: true,

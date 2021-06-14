@@ -2,9 +2,7 @@ module Api
   module V1
     class AuthenticationController < ApplicationController
       def create
-        if !user
-          handle_unauthenticated
-        else
+        if @user
           token = AuthenticationTokenService.encode(user)
           render json: {
             loggedIn: true,
@@ -13,6 +11,8 @@ module Api
             admin: user.admin,
             token: token
           }
+        else
+          handle_unauthenticated
         end
       end
 

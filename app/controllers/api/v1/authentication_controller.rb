@@ -22,9 +22,6 @@ module Api
             admin: user.admin,
             token: token
           }
-        else
-          handle_unauthenticated
-        end
       end
 
       private

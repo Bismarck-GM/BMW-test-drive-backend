@@ -15,10 +15,10 @@ gem 'puma', '~> 4.1'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt'
+gem 'database_cleaner'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'jwt'
 gem 'rack-cors'
-gem 'database_cleaner'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'rainbow'
 
@@ -39,9 +39,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', '~>0.81.0'
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
-end
-
-group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

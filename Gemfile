@@ -17,9 +17,9 @@ gem 'puma', '~> 4.1'
 gem 'bcrypt'
 gem 'database_cleaner'
 gem 'dotenv-rails', groups: %i[development test]
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'jwt'
 gem 'rack-cors'
-gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'rainbow'
 
 # Use Active Storage variant

@@ -1,8 +1,8 @@
 class AuthenticationTokenService
-  HMAC_SECRET = if Rails.env.test?
-                  'POTATO'
-                else
+  HMAC_SECRET = if Rails.env.production?
                   ENV['JWT_SECRET']
+                else
+                  'POTATO'
                 end
   ALGORITHM_TYPE = 'HS256'.freeze
 

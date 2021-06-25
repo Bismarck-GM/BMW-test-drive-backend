@@ -32,15 +32,6 @@ module Api
         params.permit(:username, :password, :password_confirmation, :email)
       end
 
-      # def authenticate_user
-      #   token, _options = token_and_options(request)
-      #   return render json: { error: "No Auth headers."}, status: :unauthorized if token.nil?
-      #   user_id = AuthenticationTokenService.decode(token)
-      #   current_user = User.find(user_id)
-      # rescue ActiveRecord::RecordNotFound
-      #   render json: { error: "No user found."}, status: :unauthorized
-      # end
-
       def authenticate_admin
         token, _options = token_and_options(request)
         return render json: { error: 'No Authorization headers.' }, status: :unauthorized if token.nil?

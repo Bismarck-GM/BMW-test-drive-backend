@@ -7,6 +7,6 @@ FactoryBot.define do
   end
   factory :loged_in_admin_user, class: 'User' do
     admin_user
-    token { AuthenticationTokenService::encode(admin_user) }
+    token { AuthenticationTokenService.encode(admin_user) }
   end
 end

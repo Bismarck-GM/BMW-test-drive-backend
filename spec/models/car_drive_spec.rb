@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CarDrive, type: :model do
   # Association test
-  it { should belong_to(:car) }
-  it { should belong_to(:drive) }
+  describe 'Associations' do
+    it { should belong_to(:car) }
+    it { should belong_to(:drive) }
+  end
 
   # Validation tests
 end

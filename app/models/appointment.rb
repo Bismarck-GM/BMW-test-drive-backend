@@ -20,6 +20,10 @@ class Appointment < ApplicationRecord
 
   validate :after_two_months?
 
+  def self.current_user_appointments(user)
+    where(user_id: user.id).where('start_time > ?', DateTime.now).includes(:car, :dealership)
+  end
+
   private
 
   def manipulate_date

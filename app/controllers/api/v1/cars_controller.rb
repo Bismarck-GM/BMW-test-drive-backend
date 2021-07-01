@@ -2,7 +2,7 @@ module Api
   module V1
     class CarsController < ApplicationController
       def index
-        cars = Car.all.includes(:family, :paints)
+        cars = Car.all_with_associations
         render json: cars.to_json({
                                     except: %i[created_at updated_at],
                                     include: {

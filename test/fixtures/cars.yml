@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  model_year: 1
+  hp: 1
+  mpg: 1
+  accel: 1.5
+  msrp: 1
+  img_thumb: MyString
+  car_family: one
+
+two:
+  name: MyString
+  code: MyString
+  model_year: 1
+  hp: 1
+  mpg: 1
+  accel: 1.5
+  msrp: 1
+  img_thumb: MyString
+  car_family: two
